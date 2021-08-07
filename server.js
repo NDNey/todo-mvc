@@ -3,6 +3,7 @@ const app = express()
 const connectDB = require('./config/database')
 const homeRoutes = require('./routes/home')
 const todoRoutes = require('./routes/todos')
+const PORT = 8000
 
 require('dotenv').config({path: './config/.env'})
 
@@ -16,6 +17,6 @@ app.use(express.json())
 app.use('/', homeRoutes)
 app.use('/todos', todoRoutes)
  
-app.listen(process.env.PORT, ()=>{
+app.listen(process.env.PORT|| PORT, ()=>{
     console.log('Server is running, you better catch it!')
 })    
